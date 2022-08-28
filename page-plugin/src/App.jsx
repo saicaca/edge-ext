@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { notification, Popover, Button } from "antd";
-import { getInfo, getLocation, getWeatherInfo } from "./utils";
+import { getInfo, getLocation, getWeatherInfo, getBrowser, Browser } from "./utils";
 
 function getCovidInfo() {
   notification.info({
@@ -97,6 +97,26 @@ const popContent = function () {
   );
 };
 
+let PREFIX = {};
+PREFIX[Browser.Edge] = "extension://";
+PREFIX[Browser.Chrome] = "chrome-extension://";
+const EXTENSION_ID = "joopofdnckamjppljklknkinmiaikiii/"
+
+console.log(PREFIX);
+console.log(getBrowser());
+
+// const EXTENSION_URL = "chrome-extension://joopofdnckamjppljklknkinmiaikiii/";
+
+const cats = {
+  1: "assets/flatcat/cat-1.png",
+  2: "assets/flatcat/cat-2.png",
+  3: "assets/flatcat/cat-3.png",
+  4: "assets/flatcat/cat-4.png",
+  5: "assets/flatcat/cat-5.png",
+  6: "assets/flatcat/cat-6.png",
+}
+let selectedCat = 1;
+
 function App() {
   return (
     <div className="App">
@@ -109,6 +129,13 @@ function App() {
             pointerEvents: "auto",
           }}
         ></canvas>
+        <div
+            style={{
+              pointerEvents: "auto",
+            }}
+        >
+          <img src={PREFIX[getBrowser()] + EXTENSION_ID + cats[selectedCat]} alt=""/>
+        </div>
       </Popover>
     </div>
   );
