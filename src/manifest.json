@@ -1,5 +1,5 @@
 {
-    "name": "白猫助手",
+    "name": "__MSG_messagename__",
     "version": "1.0",
     "description": "你的工作生活新帮手",
     "homepage_url": "https://github.com/appjson/edge-ext",
@@ -17,6 +17,7 @@
         "default_icon": "assets/logo_128.png",
         "default_popup": "popup.html"
     },
+    "default_locale": "zh_CN",
     "content_scripts": [
         {
             "matches": [
